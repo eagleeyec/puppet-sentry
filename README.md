@@ -23,6 +23,7 @@ the following platforms:
 
 * Debian 7 (Wheezy)
 * Ubuntu 14.04 (Trusty)
+* CentOS 7
 
 ## Module Description
 

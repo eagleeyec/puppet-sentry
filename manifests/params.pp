@@ -26,6 +26,27 @@ class sentry::params
         'libpq-dev',
       ]
     }
+    'RedHat': {
+      if $::operatingsystemmajrelease < 7 {
+        fail ('RedHat and related hosts require systemd, which is only available on version 7 or above.')
+      }
+
+      $packages = [
+        'libffi-devel',
+        'openssl-devel',
+        'libxml2-devel',
+        'libxslt-devel',
+        'zlib-devel',
+      ]
+
+      $mysql_packages = [
+        'mariadb-devel',
+      ]
+
+      $postgres_packages = [
+        'postgresql-devel'
+      ]
+    }
     default: {
       fail("${::operatingsystem} not supported")
     }
